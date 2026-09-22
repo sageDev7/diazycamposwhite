@@ -87,8 +87,11 @@ section{padding:110px 0}
 #header.scrolled{background:rgba(251,250,247,.92);backdrop-filter:blur(10px);box-shadow:0 4px 24px rgba(16,27,48,.1);border-bottom:1px solid var(--line-ink)}
 .hd-row{display:grid;grid-template-columns:auto 1fr auto;align-items:center;height:var(--header-h);gap:56px;max-width:1340px}
 .logo{position:relative;display:flex;align-items:center;height:41px}
-.logo-word-img{height:41px;width:auto}
-.logo-word-navy{position:absolute;top:0;left:0;opacity:0;transition:opacity .3s var(--ease)}
+.logo-word-img{width:auto}
+.logo-word-white{height:41px}
+/* textlogo.png (navy) tiene un canvas más alto que textlogo-white.png a igual ancho (622px vs 562px):
+   se compensa la altura (×1.1068) para que el wordmark se vea del mismo tamaño real al cambiar, no más chico. */
+.logo-word-navy{position:absolute;top:50%;left:0;transform:translateY(-50%);height:45.4px;opacity:0;transition:opacity .3s var(--ease)}
 #header.scrolled .logo-word-white{opacity:0}
 #header.scrolled .logo-word-navy{opacity:1}
 .hd-nav{display:flex;justify-content:center;gap:32px}
@@ -326,7 +329,9 @@ footer{background:var(--bg-2);color:var(--ink-muted);padding:72px 0 0;border-top
 @media(max-width:768px){
   .wrap{padding:0 24px}
   section{padding:80px 0}
-  .logo-word-img{height:47px}
+  .logo{height:47px}
+  .logo-word-white{height:47px}
+  .logo-word-navy{height:52px}
   #hero{height:auto;min-height:100vh;min-height:100svh;padding:calc(var(--header-h) + 40px) 0 60px}
   .hero-bg img{object-position:65% center}
   .hero-inner{text-align:center;margin:0 auto}
